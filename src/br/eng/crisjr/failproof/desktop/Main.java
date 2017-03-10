@@ -1,23 +1,14 @@
 package br.eng.crisjr.failproof.desktop;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import br.eng.crisjr.failproof.desktop.model.*;
+import br.eng.crisjr.failproof.desktop.view.*;
+import br.eng.crisjr.failproof.desktop.controller.*;
 
-public class Main extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Failproof Checklists");
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
-    }
-
-
+public class Main {
     public static void main(String[] args) {
-        launch(args);
+        MainModel model = new MainModel();
+        MainView view = new MainView();
+        MainController controller = new MainController(model, view);
+        view.setVisible(true);
     }
 }
