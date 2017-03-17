@@ -1,4 +1,4 @@
-sourcefiles = src/br/eng/crisjr/failproof/desktop/model/MainModel.java src/br/eng/crisjr/failproof/desktop/view/MainView.java src/br/eng/crisjr/failproof/desktop/controller/MainController.java src/br/eng/crisjr/failproof/desktop/Main.java
+sourcefiles = src/br/eng/crisjr/failproof/desktop/model/MainModel.java src/br/eng/crisjr/failproof/desktop/view/MainView.java src/br/eng/crisjr/failproof/desktop/controller/MainController.java src/br/eng/crisjr/failproof/desktop/Main.java src/br/eng/crisjr/failproof/desktop/Search.java src/br/eng/crisjr/failproof/desktop/controller/SearchController.java src/br/eng/crisjr/failproof/desktop/view/SearchView.java
 mainclass = br.eng.crisjr.failproof.desktop.Main
 
 compile6:

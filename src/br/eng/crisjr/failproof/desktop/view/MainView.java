@@ -5,14 +5,13 @@ import javax.swing.*;
 
 public class MainView extends JFrame {
 	private JTextField firstNumber = new JTextField(10);
-	private JLabel additionLabel = new JLabel("+");
-    private JButton calculateButton = new JButton("Calculate");
     private JButton buttonAdd = new JButton("Add");
     private JButton buttonDelete = new JButton("Delete");
     private JLabel labelStuff = new JLabel("nothing here");
 
 	public MainView () {
 		// Sets up the view and adds the components
+		// TODO Adapt this to use a GridLayout
 		JPanel panelButtons = new JPanel();
         panelButtons.add(buttonAdd);
         panelButtons.add(buttonDelete);
@@ -25,7 +24,7 @@ public class MainView extends JFrame {
 	}
 
     public void addDownloadListener(ActionListener listener) {
-        // TODO Add calculate button callback
+        // TODO Add + button callback
         buttonAdd.addActionListener(listener);
     }
 
