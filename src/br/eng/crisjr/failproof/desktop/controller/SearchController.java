@@ -1,5 +1,6 @@
 package br.eng.crisjr.failproof.desktop.controller;
 
+import java.awt.event.ComponentListener;
 import br.eng.crisjr.failproof.desktop.model.DownloadBox;
 import br.eng.crisjr.failproof.desktop.model.Downloader;
 import br.eng.crisjr.failproof.desktop.view.SearchView;
@@ -28,14 +29,16 @@ public class SearchController implements DownloadBox {
 
     /* INTERNET STUFF */
     public void receive(String[] stuff) {
-        // TODO Implement this reception of checklists
         int limit = stuff.length;
         String[] newTitles = new String[limit];
+        String[] codes = new String[limit];
         for (int i = 0; i < limit; ++i) {
             String it = stuff[i];
             newTitles[i] = it.split(":")[0];
+            codes[i] = it.split(":")[1];
         }
-        view.setTitles(newTitles);
+        view.setTitles(newTitles, codes);
+        view.show();
     }
 
     public Thread getChecklistsDownloader() {
