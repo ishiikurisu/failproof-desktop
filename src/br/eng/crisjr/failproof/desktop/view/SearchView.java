@@ -25,16 +25,13 @@ public class SearchView extends JFrame implements WindowListener {
         }
     }
 
-    public void windowClosing(WindowEvent event) {
-        controller.showParent();
-    }
-
     public void setTitles(String[] stuff) {
         int limit = stuff.length;
-        titles = new JLabel[limit];
+        JLabel[] titles = new JLabel[limit];
         for (int i = 0; i < limit; ++i) {
             titles[i] = new JLabel(stuff[i]);
         }
+        setTitles(titles);
     }
 
     public void setTitles(JLabel[] labels) {
@@ -42,7 +39,10 @@ public class SearchView extends JFrame implements WindowListener {
         for (int i = 0; i < labels.length; ++i) {
             panelTitles.add(labels[i]);
         }
+        show();
     }
+
+    // TODO Add callback to each title label
 
     /* WINDOW EVENTS */
     public void windowActivated(WindowEvent e) { }
@@ -51,4 +51,7 @@ public class SearchView extends JFrame implements WindowListener {
     public void windowDeiconified(WindowEvent e) { }
     public void windowIconified(WindowEvent e) { }
     public void windowOpened(WindowEvent e) { }
+    public void windowClosing(WindowEvent event) {
+        controller.showParent();
+    }
 }

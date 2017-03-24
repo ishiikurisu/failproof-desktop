@@ -28,9 +28,14 @@ public class SearchController implements DownloadBox {
 
     /* INTERNET STUFF */
     public void receive(String[] stuff) {
-        for (String it: stuff) {
-            System.out.println(it);
+        // TODO Implement this reception of checklists
+        int limit = stuff.length;
+        String[] newTitles = new String[limit];
+        for (int i = 0; i < limit; ++i) {
+            String it = stuff[i];
+            newTitles[i] = it.split(":")[0];
         }
+        view.setTitles(newTitles);
     }
 
     public Thread getChecklistsDownloader() {
