@@ -2,6 +2,7 @@ package br.eng.crisjr.failproof.desktop.view;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.*;
 import br.eng.crisjr.failproof.desktop.controller.SearchController;
 
 public class SearchView extends JFrame implements WindowListener, MouseListener {
@@ -12,6 +13,7 @@ public class SearchView extends JFrame implements WindowListener, MouseListener 
 
     public SearchView() {
         // Building initial window
+        panelTitles.setLayout(new GridLayout(0, 1));
         setTitles(titles);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.addWindowListener(this);

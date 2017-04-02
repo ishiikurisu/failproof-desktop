@@ -1,6 +1,7 @@
 package br.eng.crisjr.failproof.desktop.view;
 
 import java.awt.event.ActionListener;
+import java.awt.GridLayout;
 import javax.swing.*;
 
 public class MainView extends JFrame {
@@ -8,19 +9,33 @@ public class MainView extends JFrame {
     private JButton buttonAdd = new JButton("Add");
     private JButton buttonDelete = new JButton("Delete");
     private JLabel labelStuff = new JLabel("nothing here");
+	private JPanel panelChecklists = new JPanel();
 
 	public MainView () {
-		// Sets up the view and adds the components
 		// TODO Adapt this to use a GridLayout
 		JPanel panelButtons = new JPanel();
+		GridLayout layoutButtons = new GridLayout(1, 2);
+		panelButtons.setLayout(layoutButtons);
         panelButtons.add(buttonAdd);
         panelButtons.add(buttonDelete);
-        panelButtons.add(labelStuff);
+
+		// Creating checklist grid
+		panelChecklists = new JPanel();
+		GridLayout layoutChecklists = new GridLayout(0, 1);
+		panelChecklists.setLayout(layoutChecklists);
+        panelChecklists.add(labelStuff);
+
+		// Adding children panels to main panel
+		GridLayout mainLayout = new GridLayout(2, 1);
+		JPanel panelMain = new JPanel();
+		panelMain.setLayout(mainLayout);
+		panelMain.add(panelButtons);
+		panelMain.add(panelChecklists);
 
         // Setting frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 400);
-		this.add(panelButtons);
+		this.add(panelMain);
 	}
 
     public void addDownloadListener(ActionListener listener) {
