@@ -36,7 +36,6 @@ public class SearchView extends JFrame implements WindowListener {
             titles[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent event) {
-                    // TODO Implement callback to these lists in the controlelr class
                     System.out.println(paramString());
                 }
             });
@@ -53,8 +52,21 @@ public class SearchView extends JFrame implements WindowListener {
 
     // TODO Add callback to each title label
     public void setTitles(String[] titles, String[] codes) {
-        setTitles(titles);
-        this.codes = codes;
+        int limit = titles.length;
+        JButton[] buttons = new JButton[limit];
+        for (int i = 0; i < limit; ++i) {
+            String title = titles[i];
+            String code = codes[i];
+            buttons[i] = new JButton(title);
+            buttons[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent event) {
+                    // TODO Implement callback to these lists in the controller class
+                    System.out.println(code);
+                }
+            });
+        }
+        setTitles(buttons);
     }
 
 

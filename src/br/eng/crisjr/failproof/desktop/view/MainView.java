@@ -36,6 +36,19 @@ public class MainView extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 400);
 		this.add(panelMain);
+
+		// Setting native look and feel
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+
+		} catch (InstantiationException e) {
+
+		} catch (IllegalAccessException e) {
+
+		} catch (UnsupportedLookAndFeelException e) {
+
+		}
 	}
 
     public void addDownloadListener(ActionListener listener) {
