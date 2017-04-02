@@ -1,5 +1,6 @@
 package br.eng.crisjr.failproof.desktop.controller;
 
+import java.awt.event.*;
 import br.eng.crisjr.failproof.desktop.view.LinkView;
 import br.eng.crisjr.failproof.desktop.model.DownloadBox;
 import br.eng.crisjr.failproof.desktop.model.Downloader;
@@ -18,15 +19,19 @@ public class LinkController implements DownloadBox {
     public void setView(LinkView v) {
         view = v;
         view.setController(this);
+        view.addCancelButtonCallback(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                view.dispatchEvent(new WindowEvent(view, WindowEvent.WINDOW_CLOSING));
+            }
+        });
     }
 
     public void showParent() {
-        // TODO Display the Search activity, not the
-        parent.show();
+        parent.showSearch();
     }
 
     public void receive(String[] stuff) {
-        // TODO Implement download of checklist
         System.out.println(stuff[0]);
         // TODO Display checklist
     }

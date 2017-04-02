@@ -10,6 +10,7 @@ public class MainController {
     protected MainModel model;
     protected MainView view;
     protected MainController controller;
+    protected Search searchActivity = null;
 
     public MainController(MainModel model, MainView view) {
         // Setting MVC
@@ -23,10 +24,16 @@ public class MainController {
             @Override
             public void actionPerformed(ActionEvent event) {
                 // TODO Implement download of lists
-                view.setVisible(false);
-                new Search(controller);
+                showSearch();
             }
         });
+    }
+
+    public void showSearch() {
+        view.setVisible(false);
+        if (searchActivity == null)
+            searchActivity = new Search(controller);
+        searchActivity.start();
     }
 
     public void show() {

@@ -12,7 +12,10 @@ public class Search {
         view = new SearchView();
         controller = new SearchController(mainController);
         controller.setView(view);
-        view.setVisible(true);
         controller.getChecklistsDownloader().start();
+    }
+
+    public void start() {
+        view.setVisible(true);
     }
 }
