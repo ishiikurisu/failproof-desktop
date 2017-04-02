@@ -17,7 +17,6 @@ public class Link {
         this.controller = new LinkController(parent, code);
         this.controller.setView(this.view);
         this.view.setVisible(true);
-        // TODO Download checklist
         this.controller.getChecklistsDownloader().start();
     }
 }

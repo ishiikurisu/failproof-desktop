@@ -11,7 +11,6 @@ public class SearchView extends JFrame implements WindowListener {
     private JPanel panelTitles = new JPanel();
 
     public SearchView() {
-        // Building initial window
         panelTitles.setLayout(new GridLayout(0, 1));
         JLabel[] titles = new JLabel[] { new JLabel("Downloading...") };
         setTitles(titles);
@@ -50,7 +49,7 @@ public class SearchView extends JFrame implements WindowListener {
         }
     }
 
-    // TODO Add callback to each title label
+    // Adding callback to each button
     public void setTitles(String[] titles, String[] codes) {
         int limit = titles.length;
         JButton[] buttons = new JButton[limit];
