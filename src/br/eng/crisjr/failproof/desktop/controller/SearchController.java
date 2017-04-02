@@ -5,6 +5,7 @@ import br.eng.crisjr.failproof.desktop.model.DownloadBox;
 import br.eng.crisjr.failproof.desktop.model.Downloader;
 import br.eng.crisjr.failproof.desktop.view.SearchView;
 import br.eng.crisjr.failproof.desktop.controller.MainController;
+import br.eng.crisjr.failproof.desktop.Link;
 
 public class SearchController implements DownloadBox {
     private SearchView view = null;
@@ -45,5 +46,10 @@ public class SearchController implements DownloadBox {
         Downloader downloader = new Downloader(this, Downloader.GET_LISTS);
         Thread thread = new Thread(downloader);
         return thread;
+    }
+
+    public void getChecklist(String code) {
+        view.setVisible(false);
+        new Link(parent, code);
     }
 }

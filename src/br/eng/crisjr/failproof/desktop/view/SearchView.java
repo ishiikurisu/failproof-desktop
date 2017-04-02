@@ -63,6 +63,7 @@ public class SearchView extends JFrame implements WindowListener {
                 public void actionPerformed(ActionEvent event) {
                     // TODO Implement callback to these lists in the controller class
                     System.out.println(code);
+                    controller.getChecklist(code);
                 }
             });
         }
