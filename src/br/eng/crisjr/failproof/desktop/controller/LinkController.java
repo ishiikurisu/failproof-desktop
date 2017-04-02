@@ -1,9 +1,10 @@
 package br.eng.crisjr.failproof.desktop.controller;
 
 import br.eng.crisjr.failproof.desktop.view.LinkView;
+import br.eng.crisjr.failproof.desktop.model.DownloadBox;
 import br.eng.crisjr.failproof.desktop.controller.MainController;
 
-public class LinkController {
+public class LinkController implements DownloadBox {
     private LinkView view;
     private MainController parent;
     private String code;
@@ -16,5 +17,14 @@ public class LinkController {
     public void setView(LinkView v) {
         view = v;
         view.setController(this);
+    }
+
+    public void showParent() {
+        // TODO Display the Search activity, not the
+        parent.show();
+    }
+
+    public void receive(String[] stuff) {
+        // TODO Implement download of checklist
     }
 }
