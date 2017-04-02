@@ -12,7 +12,7 @@ public class MainView extends JFrame {
 	private JPanel panelChecklists = new JPanel();
 
 	public MainView () {
-		// TODO Adapt this to use a GridLayout
+		// TODO Adapt this to use a BoxLayout alongside the grid
 		JPanel panelButtons = new JPanel();
 		GridLayout layoutButtons = new GridLayout(1, 2);
 		panelButtons.setLayout(layoutButtons);

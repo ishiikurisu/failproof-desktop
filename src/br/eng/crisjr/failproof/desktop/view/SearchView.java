@@ -5,15 +5,15 @@ import java.awt.event.*;
 import java.awt.*;
 import br.eng.crisjr.failproof.desktop.controller.SearchController;
 
-public class SearchView extends JFrame implements WindowListener, MouseListener {
+public class SearchView extends JFrame implements WindowListener {
     private SearchController controller = null;
-    private JLabel[] titles = new JLabel[] { new JLabel("Downloading...") };
     private String[] codes = null;
     private JPanel panelTitles = new JPanel();
 
     public SearchView() {
         // Building initial window
         panelTitles.setLayout(new GridLayout(0, 1));
+        JLabel[] titles = new JLabel[] { new JLabel("Downloading...") };
         setTitles(titles);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.addWindowListener(this);
@@ -30,14 +30,21 @@ public class SearchView extends JFrame implements WindowListener, MouseListener 
 
     public void setTitles(String[] stuff) {
         int limit = stuff.length;
-        JLabel[] titles = new JLabel[limit];
+        JButton[] titles = new JButton[limit];
         for (int i = 0; i < limit; ++i) {
-            titles[i] = new JLabel(stuff[i]);
+            titles[i] = new JButton(stuff[i]);
+            titles[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent event) {
+                    // TODO Implement callback to these lists in the controlelr class
+                    System.out.println(paramString());
+                }
+            });
         }
         setTitles(titles);
     }
 
-    public void setTitles(JLabel[] labels) {
+    public void setTitles(JComponent[] labels) {
         panelTitles.removeAll();
         for (int i = 0; i < labels.length; ++i) {
             panelTitles.add(labels[i]);
@@ -60,16 +67,5 @@ public class SearchView extends JFrame implements WindowListener, MouseListener 
     public void windowOpened(WindowEvent e) { }
     public void windowClosing(WindowEvent event) {
         controller.showParent();
-    }
-
-    /* MOUSE EVENTS */
-    // TODO Make labels answer to mouse events
-    public void mousePressed(MouseEvent e) { }
-    public void mouseReleased(MouseEvent e) { }
-    public void mouseEntered(MouseEvent e) { }
-    public void mouseExited(MouseEvent e) { }
-    public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getSource());
-        System.out.println(e.getComponent());
     }
 }
