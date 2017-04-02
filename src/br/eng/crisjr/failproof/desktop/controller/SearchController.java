@@ -48,6 +48,7 @@ public class SearchController implements DownloadBox {
         return thread;
     }
 
+    /* OTHER ACTIVITIES */
     public void getChecklist(String code) {
         view.setVisible(false);
         new Link(parent, code);

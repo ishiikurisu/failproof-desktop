@@ -45,6 +45,9 @@ public class LinkView extends JFrame implements WindowListener {
 		this.add(panelMain);
     }
 
+    // TODO Add callbacks for save and cancel buttons
+    // TODO Enable update of checklist contents
+
     public void setController(LinkController c) {
         if (controller == null) {
             controller = c;

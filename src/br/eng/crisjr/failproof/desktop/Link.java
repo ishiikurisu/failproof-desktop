@@ -18,5 +18,6 @@ public class Link {
         this.controller.setView(this.view);
         this.view.setVisible(true);
         // TODO Download checklist
+        this.controller.getChecklistsDownloader().start();
     }
 }
