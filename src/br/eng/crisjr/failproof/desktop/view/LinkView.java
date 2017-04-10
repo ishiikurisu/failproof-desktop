@@ -15,14 +15,15 @@ public class LinkView extends JFrame implements WindowListener {
     public LinkView() {
         // Preparing checklist
         JPanel panelChecklist = new JPanel();
-        JPanel panelItems = new JPanel();
         JLabel labelWait = new JLabel("Please wait");
         GridLayout layoutChecklist = new GridLayout(2, 1);
+        panelItems = new JPanel();
         labelTitle = new JLabel("Downloading...");
         panelItems.add(labelWait);
         panelChecklist.add(labelTitle);
         panelChecklist.add(panelItems);
         panelChecklist.setLayout(layoutChecklist);
+        panelItems.setLayout(new GridLayout(0, 1));
 
         // Preparing buttons
         JPanel panelOptions = new JPanel();
@@ -65,6 +66,18 @@ public class LinkView extends JFrame implements WindowListener {
 
     public void setTitle(String title) {
         labelTitle.setText(title);
+    }
+
+    public void setItems(String[] items) {
+        panelItems.removeAll();
+        panelItems.setLayout(new GridLayout(0, 1));
+        for (String item: items) {
+            if (item.charAt(0) == '-') {
+                item = item.substring(1);
+            }
+            JLabel label = new JLabel(item);
+            panelItems.add(label);
+        }
     }
 
     /* #####################

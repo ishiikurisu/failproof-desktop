@@ -1,6 +1,7 @@
 package br.eng.crisjr.failproof.desktop.controller;
 
 import java.awt.event.*;
+import java.util.Arrays;
 import br.eng.crisjr.failproof.desktop.view.LinkView;
 import br.eng.crisjr.failproof.desktop.model.DownloadBox;
 import br.eng.crisjr.failproof.desktop.model.Downloader;
@@ -32,10 +33,10 @@ public class LinkController implements DownloadBox {
     }
 
     public void receive(String[] stuff) {
-        System.out.println(stuff[0]);
         // TODO Display checklist
         String[] checklist = stuff[0].split("\n");
         view.setTitle(checklist[0]);
+        view.setItems((String[]) Arrays.copyOfRange(checklist, 1, checklist.length));
     }
 
     public Thread getChecklistsDownloader() {
