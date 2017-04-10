@@ -63,6 +63,10 @@ public class LinkView extends JFrame implements WindowListener {
         }
     }
 
+    public void setTitle(String title) {
+        labelTitle.setText(title);
+    }
+
     /* #####################
        # WINDOW OPERATIONS #
        ##################### */

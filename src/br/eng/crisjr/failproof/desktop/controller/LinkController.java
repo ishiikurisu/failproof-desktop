@@ -34,6 +34,8 @@ public class LinkController implements DownloadBox {
     public void receive(String[] stuff) {
         System.out.println(stuff[0]);
         // TODO Display checklist
+        String[] checklist = stuff[0].split("\n");
+        view.setTitle(checklist[0]);
     }
 
     public Thread getChecklistsDownloader() {
